@@ -2,7 +2,6 @@ name: LinkedIn Job Monitor
 
 on:
   workflow_dispatch:
-
   schedule:
     - cron: "*/15 * * * *"
 
@@ -11,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -31,5 +30,4 @@ jobs:
           echo "CHECK_INTERVAL=15" >> .env
 
       - name: Run Job Monitor
-        run: |
-          python -B src/main.py
+        run: python -B src/main.py
