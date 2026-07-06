@@ -69,7 +69,7 @@ def is_recent(posted):
         "23 hours",
     ]
 
-    return any(k in posted for k in keywords)
+    return any(word in posted for word in keywords)
 
 
 def is_frontend(title):
@@ -79,22 +79,27 @@ def is_frontend(title):
         "frontend",
         "front-end",
         "front end",
-        "frontend engineer",
-        "ui engineer",
         "react",
         "reactjs",
         "react.js",
-        "javascript",
-        "typescript",
-        "web",
-        "ui",
         "angular",
         "vue",
         "next.js",
         "nextjs",
+        "javascript",
+        "typescript",
+        "ui",
+        "web",
+        "full stack",
+        "fullstack",
+        "software engineer",
+        "associate software engineer",
+        "graduate software engineer",
+        "entry level software engineer",
+        "member of technical staff",
     ]
 
-    return any(k in title for k in keywords)
+    return any(word in title for word in keywords)
 
 
 def is_bangalore(location):
@@ -117,7 +122,7 @@ def is_fresher(title):
         "lead",
         "manager",
         "principal",
-        "staff",
+        "staff engineer",
         "architect",
         "director",
         "head",
@@ -130,19 +135,18 @@ def is_fresher(title):
         "qa",
         "tester",
         "testing",
-        "automation",
+        "automation tester",
+        "automation engineer",
         "devops",
+        "site reliability",
         "sre",
         "data engineer",
+        "machine learning",
         "ml engineer",
         "ai engineer",
         "backend",
-        "java developer",
-        "python developer",
         "android",
         "ios",
-        "salesforce",
-        "sap",
     ]
 
     return not any(word in title for word in blocked)
