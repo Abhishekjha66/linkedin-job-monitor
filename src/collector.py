@@ -10,7 +10,6 @@ KEYWORDS = [
     "UI Developer",
     "Web Developer",
     "Software Engineer Frontend",
-    "Software Engineer",
     "Graduate Software Engineer",
     "Entry Level Software Engineer",
 ]
@@ -29,6 +28,8 @@ def collect_jobs():
             "https://www.linkedin.com/jobs/search/"
             f"?keywords={keyword.replace(' ', '%20')}"
             f"&location={LOCATION}"
+            "&f_TPR=r86400"      # Posted within last 24 hours
+            "&sortBy=DD"         # Newest first
         )
 
         html = fetch_linkedin_page(url)
@@ -45,6 +46,9 @@ def collect_jobs():
 
     jobs = list(unique.values())
 
+    # Apply all filters
     jobs = apply_filters(jobs)
+
+    print(f"\nTotal matching jobs: {len(jobs)}")
 
     return jobs
