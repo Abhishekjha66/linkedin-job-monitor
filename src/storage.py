@@ -1,5 +1,18 @@
 import json
 import os
+from urllib.parse import urlsplit, urlunsplit
+
+
+def normalize_url(url):
+    """
+    Remove LinkedIn tracking parameters.
+    Example:
+    https://linkedin.com/jobs/view/123?trackingId=abc
+    ->
+    https://linkedin.com/jobs/view/123
+    """
+    parts = urlsplit(url)
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
 
 
 def load_sent_jobs():
@@ -30,11 +43,17 @@ def get_new_jobs(jobs):
     old = set(load_sent_jobs())
 
     new_jobs = []
+    current_urls = []
 
     for job in jobs:
-        if job["url"] not in old:
+        clean_url = normalize_url(job["url"])
+        job["url"] = clean_url
+
+        current_urls.append(clean_url)
+
+        if clean_url not in old:
             new_jobs.append(job)
 
-    save_sent_jobs([job["url"] for job in jobs])
+    save_sent_jobs(current_urls)
 
     return new_jobs
