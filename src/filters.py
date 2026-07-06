@@ -30,6 +30,26 @@ TOP_COMPANIES = {
     "Intel",
     "Cisco",
     "NVIDIA",
+    "AMD",
+    "Qualcomm",
+    "Visa",
+    "Mastercard",
+    "PayPal",
+    "Walmart Global Tech",
+    "Intuit",
+    "ServiceNow",
+    "Autodesk",
+    "JPMorgan Chase",
+    "Goldman Sachs",
+    "Morgan Stanley",
+    "Samsung",
+    "Dell",
+    "Siemens",
+    "Ericsson",
+    "Bosch",
+    "GE Healthcare",
+    "Honeywell",
+    "Target",
 }
 
 
@@ -37,13 +57,16 @@ def is_recent(posted):
     posted = (posted or "").lower()
 
     keywords = [
-        "today",
-        "hour",
-        "hours",
+        "just now",
         "minute",
         "minutes",
-        "just now",
+        "hour",
+        "hours",
+        "today",
         "1 day",
+        "day ago",
+        "24 hours",
+        "23 hours",
     ]
 
     return any(k in posted for k in keywords)
@@ -56,12 +79,19 @@ def is_frontend(title):
         "frontend",
         "front-end",
         "front end",
+        "frontend engineer",
+        "ui engineer",
         "react",
+        "reactjs",
+        "react.js",
         "javascript",
-        "ui",
+        "typescript",
         "web",
+        "ui",
         "angular",
         "vue",
+        "next.js",
+        "nextjs",
     ]
 
     return any(k in title for k in keywords)
@@ -79,10 +109,6 @@ def is_bangalore(location):
 
 
 def is_fresher(title):
-    """
-    Reject senior roles.
-    Keep fresher / junior roles.
-    """
     title = (title or "").lower()
 
     blocked = [
@@ -101,14 +127,31 @@ def is_fresher(title):
         "2+",
         "experienced",
         "expert",
+        "qa",
+        "tester",
+        "testing",
+        "automation",
+        "devops",
+        "sre",
+        "data engineer",
+        "ml engineer",
+        "ai engineer",
+        "backend",
+        "java developer",
+        "python developer",
+        "android",
+        "ios",
+        "salesforce",
+        "sap",
     ]
 
     return not any(word in title for word in blocked)
 
 
 def is_top_company(company):
-    company = (company or "").strip()
-    return company in TOP_COMPANIES
+    company = (company or "").lower().strip()
+
+    return any(top.lower() in company for top in TOP_COMPANIES)
 
 
 def apply_filters(jobs):
