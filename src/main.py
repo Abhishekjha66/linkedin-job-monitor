@@ -29,7 +29,7 @@ def main():
         print("Apply    :", job["url"])
 
         message = f"""
-🚀 <b>Frontend Job Alert</b>
+🚀 <b>Fresher Job Alert</b>
 
 💼 <b>Role:</b>
 {job["title"]}
