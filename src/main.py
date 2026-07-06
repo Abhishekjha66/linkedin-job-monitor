@@ -1,11 +1,12 @@
+import asyncio
+
 from collector import collect_jobs
 from storage import save_jobs, get_new_jobs
-
-import asyncio
 from telegram_bot import send_message
 
 
 def main():
+
     jobs = collect_jobs()
 
     save_jobs(jobs)
@@ -27,17 +28,25 @@ def main():
         print("Posted   :", job["time"])
         print("Apply    :", job["url"])
 
-        message = f"""🔥 Frontend Job Alert
+        message = f"""
+🚀 <b>Frontend Job Alert</b>
 
-💼 {job["title"]}
+💼 <b>Role:</b>
+{job["title"]}
 
-🏢 {job["company"]}
+🏢 <b>Company:</b>
+{job["company"]}
 
-📍 {job["location"]}
+📍 <b>Location:</b>
+{job["location"]}
 
-🕒 {job["time"]}
+🕒 <b>Posted:</b>
+{job["time"]}
 
-🔗 {job["url"]}
+🔗 <b>Apply Now:</b>
+{job["url"]}
+
+━━━━━━━━━━━━━━━━━━━━
 """
 
         asyncio.run(send_message(message))
