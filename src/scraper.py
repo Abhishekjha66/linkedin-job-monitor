@@ -1,4 +1,4 @@
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 
 def fetch_linkedin_page(url):
@@ -7,10 +7,25 @@ def fetch_linkedin_page(url):
 
         page = browser.new_page()
 
-        page.goto(url)
+        try:
+            page.goto(
+                url,
+                wait_until="domcontentloaded",
+                timeout=60000
+            )
 
-        html = page.content()
+            # Give LinkedIn a moment to finish redirects/dynamic navigation
+            page.wait_for_timeout(3000)
 
-        browser.close()
+            # Retry page.content() if the page is still navigating
+            for _ in range(3):
+                try:
+                    html = page.content()
+                    return html
+                except Exception:
+                    page.wait_for_timeout(2000)
 
-        return html
+            raise RuntimeError("Unable to retrieve LinkedIn page content.")
+
+        finally:
+            browser.close()
