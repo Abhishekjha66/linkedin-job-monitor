@@ -20,15 +20,15 @@ jobs:
 
       - name: Install dependencies
         run: |
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-            pip install python-telegram-bot
-            python -m playwright install chromium
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install python-telegram-bot
+          python -m playwright install chromium
 
       - name: Create .env
         run: |
           echo "BOT_TOKEN=${{ secrets.BOT_TOKEN }}" > .env
-          echo "CHAT_ID=${{ secrets.CHAT_ID }}" >> .env
+          echo "CHAT_IDS=${{ secrets.CHAT_IDS }}" >> .env
           echo "CHECK_INTERVAL=15" >> .env
 
       - name: Run Job Monitor
