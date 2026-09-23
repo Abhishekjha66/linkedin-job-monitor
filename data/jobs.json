@@ -1,58 +1,18 @@
 [
     {
-        "title": "Frontend Engineer",
-        "company": "Razorpay",
-        "location": "Bengaluru, Karnataka, India",
-        "time": "43 minutes ago",
-        "experience": "Entry Level",
-        "url": "https://in.linkedin.com/jobs/view/frontend-engineer-at-razorpay-4470945781"
-    },
-    {
-        "title": "Software Developer",
-        "company": "IBM",
-        "location": "Bengaluru, Karnataka, India",
-        "time": "5 minutes ago",
-        "experience": "Entry Level",
-        "url": "https://in.linkedin.com/jobs/view/software-developer-at-ibm-4469313696"
-    },
-    {
         "title": "Software Engineer",
-        "company": "Microsoft",
+        "company": "Cisco",
         "location": "Bengaluru, Karnataka, India",
         "time": "1 hour ago",
         "experience": "Entry Level",
-        "url": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4470935467"
-    },
-    {
-        "title": "Web Developer",
-        "company": "Accenture in India",
-        "location": "Pune Division, Maharashtra, India",
-        "time": "23 minutes ago",
-        "experience": "Entry Level",
-        "url": "https://in.linkedin.com/jobs/view/web-developer-at-accenture-in-india-4448330368"
+        "url": "https://in.linkedin.com/jobs/view/software-engineer-at-cisco-4462166386"
     },
     {
         "title": "Web Developer",
         "company": "Accenture in India",
         "location": "Hyderabad, Telangana, India",
-        "time": "57 minutes ago",
+        "time": "9 minutes ago",
         "experience": "Entry Level",
-        "url": "https://in.linkedin.com/jobs/view/web-developer-at-accenture-in-india-4448366506"
-    },
-    {
-        "title": "Web Developer",
-        "company": "Accenture in India",
-        "location": "Bengaluru, Karnataka, India",
-        "time": "1 minute ago",
-        "experience": "Entry Level",
-        "url": "https://in.linkedin.com/jobs/view/web-developer-at-accenture-in-india-4448359153"
-    },
-    {
-        "title": "Web Developer",
-        "company": "Accenture in India",
-        "location": "Chennai, Tamil Nadu, India",
-        "time": "26 minutes ago",
-        "experience": "Entry Level",
-        "url": "https://in.linkedin.com/jobs/view/web-developer-at-accenture-in-india-4448324892"
+        "url": "https://in.linkedin.com/jobs/view/web-developer-at-accenture-in-india-4448393052"
     }
 ]
